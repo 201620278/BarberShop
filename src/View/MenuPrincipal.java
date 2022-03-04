@@ -5,17 +5,23 @@
  */
 package View;
 
+import Controller.MenuPrincipalController;
+import Model.DAO.Banco;
+
 /**
  *
  * @author cicer
  */
 public class MenuPrincipal extends javax.swing.JFrame {
 
+    private final MenuPrincipalController controller;
+
     /**
      * Creates new form MenuPrincipal
      */
     public MenuPrincipal() {
         initComponents();
+        this.controller = new MenuPrincipalController(this);
         
     }
 
@@ -218,9 +224,7 @@ public class MenuPrincipal extends javax.swing.JFrame {
 
     
     private void jMenuAgendaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuAgendaActionPerformed
-        Agendamento agenda = new Agendamento();
-        agenda.setVisible(true);
-        desktop.add(agenda);
+    this.controller.navegarParaAgendamento();
     }//GEN-LAST:event_jMenuAgendaActionPerformed
 
     private void jMenuTrabalhosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuTrabalhosActionPerformed

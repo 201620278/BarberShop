@@ -8,6 +8,8 @@ package View;
 import Model.Cliente;
 import Model.Servico;
 import Model.Usuario;
+import Model.Agendamento;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -19,7 +21,7 @@ public class Main {
     String nome = "Diego";
         System.out.println(nome);
         
-        Servico servico = new Servico(1, "Barba", 30);
+        Servico servico = new Servico(1, "corte e Barba", 35);
         System.out.println(servico.getDescricao());
         System.out.println(servico.getValor());
         
@@ -27,10 +29,13 @@ public class Main {
         Cliente cliente = new Cliente(1, "Diego", "rua teste", "63031590");
         System.out.println(cliente.getNome());
         
-        Usuario user = new Usuario(1, "Beatriz", "123", "medio");
-        System.out.println(user.getNome());
+        //Usuario user = new Usuario(1, "Beatriz", "123", "medio");
+        //System.out.println(user.getNome());
+        
         
       Agendamento agendamento = new Agendamento(1, cliente, servico, 30, "05/03/2020 09:30");
+        JOptionPane.showMessageDialog(null, agendamento.getCliente().getNome());
+      System.out.println(agendamento.getCliente().getNome());
     
     }
     

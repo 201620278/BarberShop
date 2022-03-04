@@ -5,17 +5,28 @@
  */
 package View;
 
+import Controller.LoginController;
+import Model.DAO.Banco;
+import javax.swing.JOptionPane;
+import javax.swing.JPasswordField;
+import javax.swing.JTextField;
+
+
 /**
  *
  * @author tiago
  */
 public class Login extends javax.swing.JFrame {
 
+    private final LoginController Controller;
+
     /**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+        Controller = new LoginController(this);
+        Banco.inicia();
     }
 
     /**
@@ -28,9 +39,9 @@ public class Login extends javax.swing.JFrame {
     private void initComponents() {
 
         ButtonEntrar = new javax.swing.JButton();
-        TextSenha = new javax.swing.JPasswordField();
+        txtSenha = new javax.swing.JPasswordField();
         LabelSenha = new javax.swing.JLabel();
-        TextUsuario = new javax.swing.JTextField();
+        txtUsuario = new javax.swing.JTextField();
         LabelUsuario = new javax.swing.JLabel();
         LabelTituloLogin = new javax.swing.JLabel();
         LabelPainelFundo = new javax.swing.JLabel();
@@ -51,24 +62,24 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(ButtonEntrar, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 410, 220, 40));
 
-        TextSenha.addActionListener(new java.awt.event.ActionListener() {
+        txtSenha.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextSenhaActionPerformed(evt);
+                txtSenhaActionPerformed(evt);
             }
         });
-        getContentPane().add(TextSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 260, 40));
+        getContentPane().add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 350, 260, 40));
 
         LabelSenha.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         LabelSenha.setForeground(new java.awt.Color(255, 255, 255));
         LabelSenha.setText("Senha");
         getContentPane().add(LabelSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 310, 60, -1));
 
-        TextUsuario.addActionListener(new java.awt.event.ActionListener() {
+        txtUsuario.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                TextUsuarioActionPerformed(evt);
+                txtUsuarioActionPerformed(evt);
             }
         });
-        getContentPane().add(TextUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 260, 40));
+        getContentPane().add(txtUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 260, 40));
 
         LabelUsuario.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
         LabelUsuario.setForeground(new java.awt.Color(255, 255, 255));
@@ -89,17 +100,18 @@ public class Login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void TextUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextUsuarioActionPerformed
+    private void txtUsuarioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtUsuarioActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextUsuarioActionPerformed
+    }//GEN-LAST:event_txtUsuarioActionPerformed
 
     private void ButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ButtonEntrarActionPerformed
         // TODO add your handling code here:
+        this.Controller.logar();
     }//GEN-LAST:event_ButtonEntrarActionPerformed
 
-    private void TextSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_TextSenhaActionPerformed
+    private void txtSenhaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSenhaActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_TextSenhaActionPerformed
+    }//GEN-LAST:event_txtSenhaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -143,7 +155,30 @@ public class Login extends javax.swing.JFrame {
     private javax.swing.JLabel LabelSenha;
     private javax.swing.JLabel LabelTituloLogin;
     private javax.swing.JLabel LabelUsuario;
-    private javax.swing.JPasswordField TextSenha;
-    private javax.swing.JTextField TextUsuario;
+    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JTextField txtUsuario;
     // End of variables declaration//GEN-END:variables
+
+    public void exibeMensagem(String mensagem) {
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    public JPasswordField getTextSenha() {
+        return txtSenha;
+    }
+
+    public void setTextSenha(JPasswordField TextSenha) {
+        this.txtSenha = TextSenha;
+    }
+
+    public JTextField getTextUsuario() {
+        return txtUsuario;
+    }
+
+    public void setTextUsuario(JTextField TextUsuario) {
+        this.txtUsuario = TextUsuario;
+    }
+    
+    
+    
 }

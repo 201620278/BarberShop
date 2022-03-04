@@ -5,24 +5,21 @@
  */
 package Model;
 
-import java.util.Date;
-
 /**
  *
  * @author cicer
  */
-public class Usuario extends Pessoa{
+public class Usuario extends Pessoa {
 
     protected String senha;
     protected String nivelAcessso;
 
-    public Usuario(int id, String nome, String senha, String nivelAcessso) {
+    public Usuario(int id, String nome, String senha) {
         super(id, nome);
         this.senha = senha;
-        this.nivelAcessso = nivelAcessso;
     }
 
-    public Usuario(String senha, String nivelAcessso, int id, String nome, char sexo, String dataNascimento, String telefone, String email, String cpf) {
+    public Usuario(int id, String nome, char sexo, String dataNascimento,String telefone, String email,String cpf, String senha, String nivelAcesso) {
         super(id, nome, sexo, dataNascimento, telefone, email, cpf);
         this.senha = senha;
         this.nivelAcessso = nivelAcessso;
@@ -44,7 +41,4 @@ public class Usuario extends Pessoa{
         this.nivelAcessso = nivelAcessso;
     }
 
-
-    
-    
 }
